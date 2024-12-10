@@ -1,0 +1,151 @@
+{
+  "ADMIN_KEY": "admin123!@#",
+  "Customer": [
+    {
+      "id": 1,
+      "name": "admin",
+      "phone": "0835450077",
+      "confirmed": true
+    },
+    {
+      "id": 2,
+      "name": "piu",
+      "phone": "poi",
+      "confirmed": true
+    },
+    {
+      "id": 3,
+      "name": "uouou",
+      "phone": "123123",
+      "confirmed": true
+    }
+  ],
+  "header": {
+    "title": "Thiệp mời",
+    "subtitle": "My Wedding",
+    "mainImage": "/image/img1.webp",
+    "subImage": "/image/subimg1.png",
+    "month": "04",
+    "date": "15"
+  },
+  "video": {
+    "title": "Video Cưới",
+    "description": "Tình yêu không làm cho thế giới quay tròn.",
+    "videoUrl": "https://www.youtube.com/embed/lGUdD29BDMg?si=AqH9HoU23xcuOmRr"
+  },
+  "album": {
+    "title": "Album Hình Cưới",
+    "description": "Được ai đó yêu sâu sắc sẽ mang lại cho bạn sức mạnh, trong khi yêu ai đó sâu sắc sẽ cho bạn dũng khí.",
+    "images": [
+      "/image/ab1.webp",
+      "/image/ab2.webp",
+      "/image/large (2).webp",
+      "/image/large (3).webp",
+      "/image/large (4).webp",
+      "/image/large (4).webp",
+      "/image/large (4).webp"
+    ]
+  },
+  "date": {
+    "startDate": "2024-10-03",
+    "weddingDate": "2024-12-15"
+  },
+  "store": {
+    "title": "Chuyện tình yêu",
+    "description": "Tình yêu không làm cho thế giới quay tròn.",
+    "storyItem": [
+      {
+        "time": "2024-01-01",
+        "title": "Ngày đầu tiên gặp gỡ, khi ánh mắt chạm nhau lần đầu tiên",
+        "detail": "Trong một buổi chiều đầy nắng, khi những cơn gió nhẹ nhàng lướt qua, chúng tôi đã gặp nhau lần đầu tiên. Đó là một khoảnh khắc không thể nào quên, khi ánh mắt chạm nhau và một cảm giác đặc biệt lan tỏa. Chúng tôi đã trò chuyện như những người bạn cũ lâu ngày gặp lại, chia sẻ những câu chuyện và ước mơ. Từ giây phút đó, tôi biết rằng cuộc sống của mình đã thay đổi mãi mãi. Tình yêu không chỉ làm cho thế giới quay tròn, mà còn mang đến những sắc màu mới, những niềm vui bất tận và những kỷ niệm đáng nhớ.",
+        "srcImage": "/image/ab1.webp"
+      },
+      {
+        "time": "2024-05-15",
+        "title": "Khoảnh khắc đính hôn đầy xúc động và hạnh phúc",
+        "detail": "Ngày đính hôn của chúng tôi diễn ra trong một không gian ấm cúng và lãng mạn. Đó là một buổi tối tuyệt vời, khi ánh nến lung linh và những bông hoa tươi thắm tạo nên một bầu không khí đặc biệt. Chúng tôi đã trao nhau những lời hứa chân thành, cam kết cùng nhau vượt qua mọi thử thách trong cuộc sống. Những giọt nước mắt hạnh phúc lăn dài trên má, và nụ cười rạng rỡ trên môi. Đó là một cột mốc quan trọng, đánh dấu sự khởi đầu của một hành trình mới, đầy yêu thương và hy vọng.",
+        "srcImage": "/image/ab2.webp"
+      },
+      {
+        "time": "2024-09-30",
+        "title": "Ngày cưới trong mơ với những kỷ niệm khó quên",
+        "detail": "Ngày cưới của chúng tôi là một ngày tuyệt vời, khi những giấc mơ trở thành hiện thực. Được tổ chức trong một khu vườn xinh đẹp, với những bông hoa rực rỡ và âm nhạc du dương, đó là một ngày mà chúng tôi sẽ mãi mãi ghi nhớ. Bạn bè và gia đình đã tụ họp để chúc mừng cho tình yêu của chúng tôi, và chúng tôi đã cùng nhau nhảy múa, cười đùa và chia sẻ những khoảnh khắc hạnh phúc. Đó là ngày mà chúng tôi chính thức trở thành một gia đình, một ngày mà tình yêu chiến thắng tất cả.",
+        "srcImage": "/image/large (2).webp"
+      }
+    ]
+  },
+  "about": {
+    "title": "Lời Ngỏ",
+    "messages": [
+      "Cảm ơn tất cả những người bạn thân yêu của tôi!",
+      "Tôi biết các bạn rất bận rộn, bận rộn với công việc, bận rộn với công việc gia đình…",
+      "Nhưng tất cả đã có mặt hôm nay để chúc mừng tinh yêu và hạnh phúc của chúng tôi.",
+      "Một lần nữa chân thành cảm ơn tất cả các bạn!"
+    ],
+    "imageUrl": "/image/large (2).webp"
+  },
+  "event": {
+    "title": "Sự Kiện Cưới",
+    "message": "Cảm ơn bạn rất nhiều vì đã gửi những lời chúc mừng tốt đẹp nhất đến đám cưới của chúng tôi!",
+    "events": [
+      {
+        "name": "Tiệc Đính Hôn",
+        "time": "15/05/2024",
+        "location": "Nhà trai",
+        "imageUrl": "/image/ab1.webp"
+      },
+      {
+        "name": "Tiệc Cưới",
+        "time": "15/04/2024",
+        "location": "Nhà gái",
+        "imageUrl": "/image/ab2.webp"
+      }
+    ]
+  },
+  "couple": {
+    "title": "Cô Dâu & Chú Rể",
+    "groom": {
+      "father": "Nguyễn Văn An",
+      "mother": "Trần Thị Bình",
+      "imageUrl": "/image/ab1.webp",
+      "description": "Chú rể là một kỹ sư phần mềm tài năng, yêu thích du lịch và nhiếp ảnh."
+    },
+    "bride": {
+      "father": "Lê Văn Cường",
+      "mother": "Phạm Thị Dung",
+      "imageUrl": "/image/ab2.webp",
+      "description": "Cô dâu là một nhà thiết kế thời trang, đam mê nghệ thuật và âm nhạc."
+    }
+  },
+  "subcouple": {
+    "title": "Phù Dâu & Phù Rể",
+    "bridesmaid": {
+      "imageUrl": "/image/ab1.webp",
+      "name": "Lê Thị Hồng",
+      "description": "Phù dâu là bạn thân của cô dâu, yêu thích hội họa và du lịch."
+    },
+    "groomsman": {
+      "imageUrl": "/image/ab2.webp",
+      "name": "Phạm Minh Quân",
+      "description": "Phù rể là anh họ của chú rể, đam mê thể thao và công nghệ."
+    }
+  },
+  "donate": {
+    "brideBankDetails": {
+      "accountName": "Nguyễn Thị B",
+      "accountNumber": "987654321",
+      "bankName": "Ngân hàng Techcombank",
+      "imageUrl": "/image/ExampleCode.png"
+    },
+    "groomBankDetails": {
+      "accountName": "Nguyễn Văn A",
+      "accountNumber": "123456789",
+      "bankName": "Ngân hàng Vietcombank",
+      "imageUrl": "/image/ExampleCode.png"
+    }
+  },
+  "footer": {
+    "message": "Thank you!",
+    "names": "Nguyễn Văn A & Nguyễn Thị B"
+  }
+}

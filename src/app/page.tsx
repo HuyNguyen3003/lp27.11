@@ -1,101 +1,135 @@
-import Image from "next/image";
+"use client";
+import { useEffect, useState } from "react";
+import Video from "./page/video";
+import Album from "./page/album";
+import { Calendar } from "./page/date";
+import About from "./page/about";
+import Event from "./page/event";
+import Couple from "./page/couple";
+import SubCouple from "./page/subcouple";
+import Donate from "./page/donate";
+import Send from "./page/send";
+import Footer from "./page/footer";
+import Store from "./page/store";
+import Header from "./page/header";
+import { baseData } from "./utils";
+import { InitDataInterface } from "./interface";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isClient, setIsClient] = useState(false);
+  const [initData, setInitData] = useState<InitDataInterface>();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+  useEffect(() => {
+    const fetchData = async () => {
+      const system = await baseData("data");
+      setInitData(system);
+      setIsClient(true);
+    };
+    setIsClient(true);
+    fetchData();
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
+  const startDate = new Date(initData?.date.startDate || "2024-04-15");
+  const weddingDate = new Date(initData?.date.weddingDate || "2024-04-15");
+
+  return isClient ? (
+    <div className="flex flex-col lg:flex-row justify-between">
+      <div className="hidden lg:block w-1/3 bg-gray-200 p-4">
+        {/* Nội dung cột bên trái (nếu cần) */}
+      </div>
+      <div className="w-full lg:w-1/3 bg-white p-4 flex flex-col items-center">
+        <Header
+          mainImage={initData?.header?.mainImage || ""}
+          subImage={initData?.header?.subImage || ""}
+          title={initData?.header?.title || ""}
+          subtitle={initData?.header?.subtitle || ""}
+          date={initData?.header?.date || "15"}
+          month={initData?.header?.month || "04"}
+        />
+        <Video
+          title={initData?.video?.title || ""}
+          description={initData?.video?.description || ""}
+          videoUrl={initData?.video?.videoUrl || ""}
+        />
+        <Album
+          title={initData?.album?.title || ""}
+          description={initData?.album?.description || ""}
+          images={initData?.album?.images || []}
+        />
+        <Calendar startDate={startDate} weddingDate={weddingDate} />
+        <Store
+          title={initData?.store?.title || ""}
+          description={initData?.store?.description || ""}
+          storyItem={initData?.store?.storyItem || []}
+        />
+        <About
+          title={initData?.about?.title || ""}
+          messages={initData?.about?.messages || []}
+          imageUrl={initData?.about?.imageUrl || ""}
+        />
+        <Event
+          title={initData?.event?.title || ""}
+          message={initData?.event?.message || ""}
+          events={initData?.event?.events || []}
+        />
+        <Couple
+          title={initData?.couple?.title || ""}
+          groom={{
+            father: initData?.couple?.groom?.father || "",
+            mother: initData?.couple?.groom?.mother || "",
+            description: initData?.couple?.groom?.description || "",
+            imageUrl: initData?.couple?.groom?.imageUrl || "",
+          }}
+          bride={{
+            father: initData?.couple?.bride?.father || "",
+            mother: initData?.couple?.bride?.mother || "",
+            description: initData?.couple?.bride?.description || "",
+            imageUrl: initData?.couple?.bride?.imageUrl || "",
+          }}
+        />
+
+        <SubCouple
+          title={initData?.subcouple?.title || ""}
+          bridesmaid={{
+            name: initData?.subcouple?.bridesmaid?.name || "",
+            description: initData?.subcouple?.bridesmaid?.description || "",
+            imageUrl: initData?.subcouple?.bridesmaid?.imageUrl || "",
+          }}
+          groomsman={{
+            name: initData?.subcouple?.groomsman?.name || "",
+            description: initData?.subcouple?.groomsman?.description || "",
+            imageUrl: initData?.subcouple?.groomsman?.imageUrl || "",
+          }}
+        />
+
+        <Donate
+          groomBankDetails={{
+            bankName: initData?.donate?.groomBankDetails?.bankName || "",
+            accountName: initData?.donate?.groomBankDetails?.accountName || "",
+            accountNumber:
+              initData?.donate?.groomBankDetails?.accountNumber || "",
+            imageUrl: initData?.donate?.groomBankDetails?.imageUrl || "",
+          }}
+          brideBankDetails={{
+            bankName: initData?.donate?.brideBankDetails?.bankName || "",
+            accountName: initData?.donate?.brideBankDetails?.accountName || "",
+            accountNumber:
+              initData?.donate?.brideBankDetails?.accountNumber || "",
+            imageUrl: initData?.donate?.brideBankDetails?.imageUrl || "",
+          }}
+        />
+
+        <Send />
+        <Footer
+          message={initData?.footer?.message || ""}
+          names={initData?.footer?.names || ""}
+        />
+      </div>
+      <div className="hidden lg:block w-1/3 bg-gray-200 p-4"></div>
     </div>
-  );
+  ) : null;
 }
