@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Cookies from "js-cookie";
-import { InitFormInterface, interCustomerInterface } from "../interface";
+import { InitFormInterface, InitDataInterface } from "../interface";
 
 function setClientCookie(name: string, value: string) {
   Cookies.set(name, value, { expires: 3, path: "/" });
@@ -17,7 +17,7 @@ const baseData = async (fileName: string) => {
   return data;
 };
 
-const handleSaveSystem = async (data: interCustomerInterface[]) => {
+const handleSaveSystem = async (data: InitDataInterface) => {
   await fetch("/api/system", {
     method: "POST",
     headers: {

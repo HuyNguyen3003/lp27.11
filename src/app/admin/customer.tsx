@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { handleSaveSystem } from "../utils";
+import { baseData, handleSaveSystem } from "../utils";
 import { interCustomerInterface } from "../interface";
 import ConfirmDialogUpdate from "./confirmDialog";
 import AddUserDialog from "./addUserDialog";
@@ -25,7 +25,9 @@ const Customer: React.FC<CustomerProps> = ({ Customer = [] }) => {
   }
 
   const handleConfirmUpdate = async () => {
-    await handleSaveSystem(customer);
+    const data = await baseData("data");
+    data.Customer = customer;
+    await handleSaveSystem(data);
     setShowDialogUpdate(false);
   };
 
@@ -42,7 +44,9 @@ const Customer: React.FC<CustomerProps> = ({ Customer = [] }) => {
     const updatedCustomer = [...customer, user];
     setCustomer(updatedCustomer);
     setShowAddUserDialog(false);
-    await handleSaveSystem(updatedCustomer);
+    const data = await baseData("data");
+    data.Customer = updatedCustomer;
+    await handleSaveSystem(data);
   };
 
   const handleCancelAddUser = () => {

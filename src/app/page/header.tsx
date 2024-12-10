@@ -2,13 +2,20 @@ import React from "react";
 import Image from "next/image";
 import { HeaderProps } from "@/app/interface/index";
 
-const Header: React.FC<HeaderProps> = ({
+interface HeaderPropsExtend extends HeaderProps {
+  onSendClick: () => void;
+  onDonateClick: () => void;
+}
+
+const Header: React.FC<HeaderPropsExtend> = ({
   mainImage,
   subImage,
   title,
   subtitle,
   date,
   month,
+  onSendClick,
+  onDonateClick,
 }) => {
   return (
     <div className="w-[90%] mx-auto text-center p-6 shadow-lg relative">
@@ -46,18 +53,21 @@ const Header: React.FC<HeaderProps> = ({
         <button
           type="button"
           className="bg-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-pink-600 transition duration-300"
+          onClick={onSendClick}
         >
           Gửi lời chúc
         </button>
         <button
           type="button"
           className="bg-green-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-green-600 transition duration-300"
+          onClick={() => (window.location.href = "/confirm")}
         >
           Xác nhận tham dự
         </button>
         <button
           type="button"
           className="bg-yellow-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-yellow-600 transition duration-300"
+          onClick={onDonateClick}
         >
           Mừng cưới
         </button>
