@@ -69,32 +69,19 @@ export default function Home() {
           onSendClick={scrollToSend}
           onDonateClick={scrollToDonate}
         />
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5 }}
-          variants={fadeInVariants}
-        >
-          <Video
-            title={initData?.video?.title || ""}
-            description={initData?.video?.description || ""}
-            videoUrl={initData?.video?.videoUrl || ""}
-          />
-        </motion.div>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5 }}
-          variants={fadeInVariants}
-        >
-          <Album
-            title={initData?.album?.title || ""}
-            description={initData?.album?.description || ""}
-            images={initData?.album?.images || []}
-          />
-        </motion.div>
+
+        <Video
+          title={initData?.video?.title || ""}
+          description={initData?.video?.description || ""}
+          videoUrl={initData?.video?.videoUrl || ""}
+        />
+
+        <Album
+          title={initData?.album?.title || ""}
+          description={initData?.album?.description || ""}
+          images={initData?.album?.images || []}
+        />
+
         <motion.div
           initial="hidden"
           whileInView="visible"
